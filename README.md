@@ -1,4 +1,4 @@
-<h1 align="center">🌺 QwikStore 🌺</h1>
+<h1 align="center">📙 QwikStore 📙</h1>
 <p align="center">A Simple and Quick Datastore API</p>
 
 # Introduction
