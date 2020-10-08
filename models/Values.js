@@ -7,7 +7,7 @@ const values = new Schema({
         type: String,
         unique: true
     },
-    name: {
+    entity: {
         // Stores the Variable Unique Name
         type: String,
         required: true,
@@ -18,10 +18,11 @@ const values = new Schema({
         type: String,
         required: true
     },
-    name: {
+    content: {
         // Stores the Value - Any Type
         type: Schema.Types.Mixed,
-        required: true
+        required: false,
+        default: null
     },
     api_key: {
         type: String,

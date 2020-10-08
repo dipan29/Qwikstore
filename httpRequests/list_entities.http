@@ -1,0 +1,7 @@
+POST http://localhost:5000/list-entities
+Content-Type: application/json
+
+{
+    "owner": "dipanroy12@gmail.com",
+    "api_key": "I405-H51D49-HC0A"
+}

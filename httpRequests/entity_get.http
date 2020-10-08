@@ -1,0 +1,2 @@
+GET http://localhost:5000/I405-H51D49-HC0W/fan
+Content-Type: application/json

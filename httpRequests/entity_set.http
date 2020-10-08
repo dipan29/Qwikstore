@@ -1,0 +1,8 @@
+POST http://localhost:5000/create
+Content-Type: application/json
+
+{
+    "api_key" : "I405-H51D49-HC0W",
+    "entity" : "tube",
+    "content": false
+}
