@@ -26,6 +26,11 @@ const values = new Schema({
     api_key: {
         type: String,
         required: true
+    },
+    last_used: {
+        type: String,
+        required: false,
+        default: null
     }
 }, {timestamps: true});
 

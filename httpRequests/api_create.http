@@ -1,0 +1,8 @@
+POST http://localhost:5000/api/stats
+Content-Type: application/json
+
+{
+    "owner": "dipanroy12@gmail.com",
+    "api_key": "I405-H51D49-HC0W",
+    "access_key": "abc"
+}
