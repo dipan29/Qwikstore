@@ -1,4 +1,4 @@
-POST http://localhost:5000/api/list
+POST http://localhost:5000/api/create
 Content-Type: application/json
 
 {

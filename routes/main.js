@@ -9,8 +9,8 @@ router.get('/', async (req, res) => {
     res.status(200).send(`QwikStore API Running Successfully.<br/><br/>Last refresh at ${startTime}`);
 });
 
-// Get Values of Entities - GET, POST both supported /api-key/entity or POST /content
-router.all('/:api_key/:entity', async (req, res) => {
+// Get Values of Entities - GET supported for /api-key/entity or POST /content
+router.get('/:api_key/:entity', async (req, res) => {
     const { api_key } = req.params;
     const { entity } = req.params;
     // console.log({api_key, entity});
@@ -20,6 +20,7 @@ router.all('/:api_key/:entity', async (req, res) => {
             //     "message": "Success",
             //     "content": value.content
             // });
+            // TODO Update Last Used
             res.send(value.content);
         } else {
             res.status(404).json({
@@ -50,10 +51,11 @@ router.post('/content', async (req, res) => {
 // Main Functions
 router.post('/create', async (req, res) => {
     const { api_key } = req.body
-    // TODO Update count of api key - Check if api key is valid even
+    // TODO Update count of api key - Check if api key is valid even; Also update last used
     Keys.findOne({ api_key }).then(key => {
         if (key) {
-            const { entity } = req.body;
+            let { entity } = req.body;
+            // TODO if there are spaces replace with '-'
             const { content } = req.body;
             let type = req.body.type ? req.body.type : (typeof content);
             if (supported_types.includes(type.toLowerCase())) {
