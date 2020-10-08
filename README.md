@@ -1,4 +1,4 @@
-<p style="font-size: 24px" align="center">QwikStore</p>
+<h1 align="center">🌺 QwikStore 🌺</h2>
 <p align="center">A Simple and Quick Datastore API</p>
 
 # Introduction
@@ -7,4 +7,4 @@ This is a simple API that allows you to create certain properties (in form of AP
 ## Using the Public API Endpoint
 These are the available endpoints that are availabe in this application at the moment. Before getting started with the applicaition, you need to create an API Key to allow the API interactions.
 
-### 1. Creating an API Key
+### 1. Creating an API Key <img src="https://img.shields.io/badge/POST-blueviolet?style=for-the-badge">
