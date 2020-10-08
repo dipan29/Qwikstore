@@ -3,6 +3,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 // const basicAuth = require('express-basic-auth');
 const cron = require('node-cron');
+require('dotenv').config();
 
 const port = process.env.PORT || 3000;
 
