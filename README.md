@@ -1,4 +1,4 @@
-<h1 align="center">QwikStore</h2>
+<p style="font-size: 24px" align="center">QwikStore</p>
 <p align="center">A Simple and Quick Datastore API</p>
 
 # Introduction
