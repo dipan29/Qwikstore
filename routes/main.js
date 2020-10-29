@@ -11,8 +11,7 @@ router.get('/', async (req, res) => {
 
 // Get Values of Entities - GET supported for /api-key/entity or POST /content
 router.get('/:api_key/:entity', async (req, res) => {
-    const { api_key } = req.params;
-    const { entity } = req.params;
+    const { api_key, entity } = req.params;
     // console.log({api_key, entity});
     Values.findOne({ api_key, entity }).then(value => {
         if (value) {
@@ -31,8 +30,7 @@ router.get('/:api_key/:entity', async (req, res) => {
     });
 });
 router.post('/content', async (req, res) => {
-    const { api_key } = req.body;
-    const { entity } = req.body;
+    const { api_key, entity } = req.params;
     Values.findOne({ api_key, entity }).then(value => {
         if (value) {
             res.status(200).json({
@@ -101,9 +99,7 @@ router.post('/create', async (req, res) => {
 });
 
 router.post('/set', async (req, res) => {
-    const { api_key } = req.body;
-    const { entity } = req.body;
-    const { content } = req.body;
+    const { api_key, entity, content } = req.body;
 
     Values.findOne({ api_key, entity }).then(async value => {
         if (value.type === (typeof content).toLowerCase()) {
@@ -130,8 +126,7 @@ router.post('/set', async (req, res) => {
 
 // Set Data - GET Method
 router.get('/set/:api_key/:entity/:value', async (req, res) => {
-    const { api_key } = req.params;
-    const { entity } = req.params;
+    const { api_key, entity } = req.params;
     const content = req.params.value;
 
     Values.findOne({ api_key, entity }).then(async value => {
@@ -152,9 +147,7 @@ router.get('/set/:api_key/:entity/:value', async (req, res) => {
 });
 
 router.post('/list-entities', async (req, res) => {
-    const { api_key } = req.body;
-    const { owner } = req.body;
-
+    const { api_key, owner } = req.body;
     Keys.findOne({ api_key, owner }).then(async key => {
         if (key) {
             Values.find({ api_key })
@@ -177,8 +170,7 @@ router.post('/list-entities', async (req, res) => {
 
 // Delete Entity
 router.post('/delete', async (req, res) => {
-    const { api_key } = req.body;
-    const { entity } = req.body;
+    const { api_key, entity } = req.body;
     Values.findOneAndDelete({ api_key, entity }).then(async value => {
         if (value) {
             res.status(200).json({

@@ -32,8 +32,8 @@ router.post('/create', async (req, res) => {
 });
 
 router.post('/delete', async (req, res) => {
-    const { api_key } = req.body;
-    const { owner } = req.body;
+    const { api_key, owner } = req.body;
+
     Keys.findOneAndDelete({ api_key, owner }).then(async key => {
         if (key) {
             // Delete all variables here - TODO
@@ -72,8 +72,7 @@ router.post('/list', async (req, res) => {
 })
 
 router.post('/stats', async (req, res) => {
-    const { api_key } = req.body;
-    const { owner } = req.body;
+    const { api_key, owner } = req.body;
     Keys.findOne({ api_key, owner })
         .then(key => {
             if (key) {
